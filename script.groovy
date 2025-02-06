@@ -6,9 +6,9 @@ def buildJar() {
 def buildImage() {
     echo "building the docker image..."
     withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-        sh 'docker build -t nanajanashia/demo-app:jma-2.0 .'  // Construimos la imagen Docker
+        sh 'docker build -t drlay/docker-grovvy:grovvy-1.1.1 .'  // Construimos la imagen Docker
         sh "echo $PASS | docker login -u $USER --password-stdin"  // Login en Docker Hub
-        sh 'docker push nanajanashia/demo-app:jma-2.0'  // Subimos la imagen a Docker Hub
+        sh 'docker push drlay/docker-grovvy:grovvy-1.1.1'  // Subimos la imagen a Docker Hub
     }
 } 
 
